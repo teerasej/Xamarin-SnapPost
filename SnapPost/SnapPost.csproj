@@ -48,6 +48,7 @@
     <Compile Include="Views\FacebookLoginPage.xaml.cs">
       <DependentUpon>FacebookLoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\IPhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Media.Abstractions">

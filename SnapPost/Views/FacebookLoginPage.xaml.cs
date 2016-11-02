@@ -24,7 +24,7 @@ namespace Views
 			var apiRequest =
 				"https://www.facebook.com/dialog/oauth?client_id="
 				+ appID
-				+ "&scope=public_profile"
+				+ "&scope=public_profile,user_photos,publish_actions"
 				+ "&response_type=token"
 				+ "&redirect_uri=https://www.facebook.com/connect/login_success.html";
 
