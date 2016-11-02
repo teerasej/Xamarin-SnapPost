@@ -18,14 +18,14 @@ namespace SnapPost
 
 			var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
 			{
-				Directory = "Sample",
-				Name = "test.jpg"
+				Directory = "Nextflow",
+				Name = "selfie.jpg"
 			});
 
 			if (file == null)
 				return;
 
-			file.Path
+
 
 			image.Source = ImageSource.FromStream(() =>
 			{
