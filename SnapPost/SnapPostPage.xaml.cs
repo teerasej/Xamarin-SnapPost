@@ -25,7 +25,7 @@ namespace SnapPost
 			if (file == null)
 				return;
 
-
+			App.photoPath = file.Path;
 
 			image.Source = ImageSource.FromStream(() =>
 			{
