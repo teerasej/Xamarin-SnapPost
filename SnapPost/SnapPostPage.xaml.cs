@@ -11,6 +11,7 @@ namespace SnapPost
 
 		private FacebookServices fbServices;
 		private string accessToken;
+		private string photoPath;
 
 		public SnapPostPage()
 		{
@@ -33,7 +34,7 @@ namespace SnapPost
 			if (file == null)
 				return;
 
-			App.photoPath = file.Path;
+			this.photoPath = file.Path;
 
 			image.Source = ImageSource.FromStream(() =>
 			{
@@ -42,6 +43,23 @@ namespace SnapPost
 				return stream;
 			});
 
+
+
+
+		}
+
+		async void PostToFacebook_Clicked(object sender, EventArgs e)
+		{
+			var response = await fbServices.PostPhotoToMobile("Yahoo! Xamarin Dev Day", this.photoPath, this.accessToken);
+
+			if (response.IsSuccessStatusCode)
+			{
+				await DisplayAlert("Posted!", "Photo uploaded to Facebook", "OK");
+			}
+			else
+			{
+				await DisplayAlert("Oops!", "try again", "OK");
+			}
 		}
 
 		async void LoginToFacebook_Clicked(object sender, EventArgs e)
