@@ -55,6 +55,8 @@ namespace SnapPost
 		{
 			MessagingCenter.Unsubscribe<FacebookLoginPage, string>(this, FacebookLoginPage.LOGIN_COMPLETE);
 
+			this.accessToken = accessToken;
+
 			fbServices = new FacebookServices();
 
 			var facebookProfile = await fbServices.GetFacebookProfileAsync(accessToken);
