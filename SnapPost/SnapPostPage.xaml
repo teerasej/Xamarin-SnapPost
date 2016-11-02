@@ -17,6 +17,7 @@
 		<Button Text="Login to Facebook" Clicked="LoginToFacebook_Clicked"/>
 		<Button Text="Snap" Clicked="Handle_Clicked"/>
 		<Button Text="Post to Facebook" Clicked="PostToFacebook_Clicked"/>
+		<ActivityIndicator x:Name="loading" IsRunning="false"/>
 		<Image x:Name="image"></Image>
 	</StackLayout>
 </ContentPage>

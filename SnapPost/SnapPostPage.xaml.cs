@@ -50,7 +50,9 @@ namespace SnapPost
 
 		async void PostToFacebook_Clicked(object sender, EventArgs e)
 		{
+			loading.IsRunning = true;
 			var response = await fbServices.PostPhotoToMobile("Yahoo! Xamarin Dev Day", this.photoPath, this.accessToken);
+			loading.IsRunning = false;
 
 			if (response.IsSuccessStatusCode)
 			{
