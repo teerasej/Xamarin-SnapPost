@@ -5,6 +5,7 @@
 	xmlns:local="clr-namespace:SnapPost"
 	x:Class="SnapPost.SnapPostPage">
 	<StackLayout>
+		<Button Text="Login to Facebook" Clicked="LoginToFacebook_Clicked"/>
 		<Button Text="Snap" Clicked="Handle_Clicked"/>
 		<Image x:Name="image"></Image>
 	</StackLayout>

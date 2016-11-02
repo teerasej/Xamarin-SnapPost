@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Plugin.Media;
-
+using System;
+using Views;
 
 namespace SnapPost
 {
@@ -34,6 +35,11 @@ namespace SnapPost
 				return stream;
 			});
 
+		}
+
+		async void LoginToFacebook_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new FacebookLoginPage());
 		}
 	}
 }
