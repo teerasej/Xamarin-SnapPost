@@ -5,6 +5,10 @@
 	xmlns:local="clr-namespace:SnapPost"
 	x:Class="SnapPost.SnapPostPage">
 	<StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Image x:Name="imageFacebookProfile" WidthRequest="96" HeightRequest="96"/>
+			<Label x:Name="labelFacebookName" />
+		</StackLayout>
 		<Button Text="Login to Facebook" Clicked="LoginToFacebook_Clicked"/>
 		<Button Text="Snap" Clicked="Handle_Clicked"/>
 		<Image x:Name="image"></Image>

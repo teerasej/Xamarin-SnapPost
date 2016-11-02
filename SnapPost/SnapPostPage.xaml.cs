@@ -2,14 +2,21 @@
 using Plugin.Media;
 using System;
 using Views;
+using Services;
 
 namespace SnapPost
 {
 	public partial class SnapPostPage : ContentPage
 	{
+
+		private FacebookServices fbServices;
+		private string accessToken;
+
 		public SnapPostPage()
 		{
 			InitializeComponent();
+
+
 		}
 
 		async void Handle_Clicked(object sender, System.EventArgs e)
@@ -44,11 +51,16 @@ namespace SnapPost
 			await Navigation.PushModalAsync(new FacebookLoginPage());
 		}
 
-		void HandleAction(Views.FacebookLoginPage arg1, string accessToken)
+		async void HandleAction(Views.FacebookLoginPage arg1, string accessToken)
 		{
 			MessagingCenter.Unsubscribe<FacebookLoginPage, string>(this, FacebookLoginPage.LOGIN_COMPLETE);
 
+			fbServices = new FacebookServices();
 
+			var facebookProfile = await fbServices.GetFacebookProfileAsync(accessToken);
+
+			labelFacebookName.Text = facebookProfile.Name;
+			imageFacebookProfile.Source = facebookProfile.Picture.Data.Url;
 		}
 	}
 }
