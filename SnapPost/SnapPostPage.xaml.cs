@@ -39,7 +39,16 @@ namespace SnapPost
 
 		async void LoginToFacebook_Clicked(object sender, EventArgs e)
 		{
+			MessagingCenter.Subscribe<FacebookLoginPage, string>(this, FacebookLoginPage.LOGIN_COMPLETE, HandleAction);
+
 			await Navigation.PushModalAsync(new FacebookLoginPage());
+		}
+
+		void HandleAction(Views.FacebookLoginPage arg1, string accessToken)
+		{
+			MessagingCenter.Unsubscribe<FacebookLoginPage, string>(this, FacebookLoginPage.LOGIN_COMPLETE);
+
+
 		}
 	}
 }

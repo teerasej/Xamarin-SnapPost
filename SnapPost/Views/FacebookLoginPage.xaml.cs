@@ -45,7 +45,7 @@ namespace Views
 			if (accessToken != "")
 			{
 				
-
+				MessagingCenter.Send<FacebookLoginPage, string>(this, FacebookLoginPage.LOGIN_COMPLETE, accessToken);
 				await Navigation.PopModalAsync();
 
 			}
