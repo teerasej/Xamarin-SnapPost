@@ -15,11 +15,6 @@ namespace SnapPost
 		{
 			await CrossMedia.Current.Initialize();
 
-			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-			{
-				await DisplayAlert("No Camera", ":( No camera available.", "OK");
-				return;
-			}
 
 			var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
 			{
@@ -30,6 +25,7 @@ namespace SnapPost
 			if (file == null)
 				return;
 
+			file.Path
 
 			image.Source = ImageSource.FromStream(() =>
 			{
